@@ -30,13 +30,7 @@ public class DiceGame {
 			System.out.println(Language[Lang][5]+die1+Language[Lang][6]+die2);
 			//Start a new loop here.
 			for(int c=0; c<count;c++) {
-				if(didIWin(die1,die2,playerChoices[c]))
-				{
-					System.out.println(Language[Lang][3]+(c+1)+Language[Lang][7]);
-				}else
-				{
-					System.out.println(Language[Lang][3]+(c+1)+Language[Lang][8]);
-				}
+				didIWin(die1,die2,playerChoices[c],c);
 			}
 			
 			choice = getInput(Language[Lang][9]);
@@ -60,9 +54,14 @@ public class DiceGame {
 			};
 		return temp;
 	}
-	private static boolean didIWin(int die1, int die2, String choice)
+	private static boolean didIWin(int die1, int die2, String playerChoices, int c)
 	{
-		
+		if (playerChoices.equals("2") && (die1+die2)%2==0 || playerChoices.equals("1") && (die1+die2)%2==1) {
+			System.out.println(Language[Lang][3]+(c+1)+Language[Lang][7]);
+		}
+		else {
+			System.out.println(Language[Lang][3]+(c+1)+Language[Lang][8]);
+		}
 		return false;
 	}
 	
